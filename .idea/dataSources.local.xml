@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - ssh@localhost" uuid="c375129d-b443-4269-893a-3568418287a8">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-scope>ssh:</introspection-scope>
+      <resolve-scope>ssh:</resolve-scope>
+    </data-source>
+  </component>
+</project>

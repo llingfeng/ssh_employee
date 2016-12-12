@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.entity.Employee" table="employee">
+        <id name="employeeId" column="employee_id">
+            <generator class="native"/>
+        </id>
+        <property name="employeeName" column="employee_name" length="30"/>
+        <property name="employeeSex" column="employee_sex" length="6"/>
+        <property name="employeeNo" column="employee_no" length="20"/>
+        <property name="birthday" column="birthday"/>
+        <property name="joinDate" column="join_date"/>
+        <property name="username" column="username"/>
+        <property name="password" column="password"/>
+
+        <!--关系映射-->
+        <many-to-one name="department" class="com.entity.Department" column="department_no"/>
+    </class>
+</hibernate-mapping>
