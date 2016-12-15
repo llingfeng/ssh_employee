@@ -30,11 +30,11 @@ public class DepartmentServiceImpl implements DepartmentService {
         int totalSize = departmentDao.findTotalNum();
         pageBean.setTotalSize(totalSize);
         double tn = totalSize;
-        Double totalPage = Math.ceil(tn/pageSize);
+        Double totalPage = Math.ceil(tn / pageSize);
         //总页数
         pageBean.setTotalPage(totalPage.intValue());
-        int beginNum = pageSize*(current-1);
-        List<Department> departmentList = departmentDao.findByPage(beginNum,pageSize);
+        int beginNum = pageSize * (current - 1);
+        List<Department> departmentList = departmentDao.findByPage(beginNum, pageSize);
         pageBean.setList(departmentList);
         return pageBean;
     }
@@ -57,5 +57,10 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public void deleteDepartment(Department department) {
         departmentDao.delete(department);
+    }
+
+    @Override
+    public List<Department> getDepartmentList() {
+        return departmentDao.queryAllDepartment();
     }
 }

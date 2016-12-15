@@ -30,9 +30,28 @@ public interface DepartmentDao {
      */
     void save(Department department);
 
+    /**
+     * 根据部门id查询
+     * @param departmentId
+     * @return
+     */
     Department getDepartmentById(Integer departmentId);
 
+    /**
+     * 更新部门
+     * @param department
+     */
     void updateDepartment(Department department);
 
+    /**
+     * 删除部门
+     * @param department
+     */
     void delete(Department department);
+
+    /**
+     * 查询所有部门
+     * @return
+     */
+    List<Department> queryAllDepartment();
 }

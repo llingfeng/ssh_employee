@@ -17,6 +17,46 @@
             <result name="editUI">/frame/editDepartment.jsp</result>
             <result name="updateSuccess" type="redirectAction">department_findAll.action</result>
             <result name="successDel" type="redirectAction">department_findAll.action</result>
+            <result name="download" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="test.xls"</param>
+                <param name="bufferSize">2097152</param>
+            </result>
+        </action>
+
+        <action name="upload" class="com.action.UnloadAction">
+            <result>/frame/upload.jsp</result>
+            <result name="input">/frame/error.jsp</result>
+            <!--配置拦截器 文件类型 文件大小-->
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/bmp,image/x-png,image/gif,image/jpeg</param>
+                <param name="maximumSize">2097152</param>
+            </interceptor-ref>
+            <!--栈信息-->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+        <action name="batchUpload" class="com.action.BatchUnloadAction">
+            <result>/frame/upload.jsp</result>
+            <result name="input">/frame/error.jsp</result>
+            <!--配置拦截器 文件类型 文件大小-->
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/bmp,image/x-png,image/gif,image/jpeg</param>
+                <param name="maximumSize">2097152</param>
+            </interceptor-ref>
+            <!--栈信息-->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+
+        <action name="download" class="com.action.DownloadAction">
+            <param name="inputPath">/downloadFile/img1-lg.jpg</param>
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+                <param name="bufferSize">2097152</param>
+            </result>
         </action>
     </package>
 </struts>

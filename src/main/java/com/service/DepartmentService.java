@@ -3,6 +3,8 @@ package com.service;
 import com.entity.Department;
 import com.entity.PageBean;
 
+import java.util.List;
+
 /**
  * Created by admin on 2016/12/1.
  */
@@ -38,4 +40,10 @@ public interface DepartmentService {
      * @param department
      */
     void deleteDepartment(Department department);
+
+    /**
+     * 查询所有部门
+     * @return
+     */
+    List<Department> getDepartmentList();
 }

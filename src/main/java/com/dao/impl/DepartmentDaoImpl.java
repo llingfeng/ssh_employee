@@ -54,4 +54,10 @@ public class DepartmentDaoImpl extends BaseDao implements DepartmentDao {
     public void delete(Department department) {
         getSession().delete(department);
     }
+
+    @Override
+    public List<Department> queryAllDepartment() {
+        Query query = getSession().createQuery("From Department");
+        return query.list();
+    }
 }
