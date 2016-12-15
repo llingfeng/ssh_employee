@@ -16,6 +16,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import java.io.*;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 
@@ -146,5 +147,15 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
             e.printStackTrace();
         }
         return fileOutputStream;
+    }
+
+    public String getDownloadFileName(){
+        String fileName = "";
+        try {
+            fileName = URLEncoder.encode("部门"+System.currentTimeMillis()+".xls","utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return fileName;
     }
 }
