@@ -51,6 +51,10 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
         return "list";
     }
 
+    public List<Department> getAllDepartment(){
+        return departmentService.getDepartmentList();
+    }
+
     /**
      * 跳转到新增页面
      * @return
